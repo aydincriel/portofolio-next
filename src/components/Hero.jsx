@@ -13,7 +13,7 @@ md:flex-row md:text-left">
  />
  <div>
  <h1 className="text-3xl font-bold text-utama
-md:text-5xl">Halo, saya {nama}!</h1>
+md:text-5xl">Halo, saya Aydin Akmal Daffa{nama}!</h1>
  <p className="mt-3 text-lg text-gray-700">{tagline}</p>
  </div>
  </section>

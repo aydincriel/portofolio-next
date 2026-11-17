@@ -1,0 +1,79 @@
+import Kartu from "@/components/Kartu";
+
+export const metadata = {
+  title: "Tentang",
+  description: "Cerita, hobi, cita-cita, dan jadwal belajar Aydin Akmal Daffa.",
+};
+
+const hobi = ["Bermain futsal", "Membaca komik", "Mendesain poster"];
+
+const rencana = [
+  "Menuntaskan Kelas Industri UBIG sampai Semester 4",
+  "Magang di perusahaan teknologi",
+  "Bekerja sebagai Web Developer",
+];
+
+const jadwal = [
+  { hari: "Senin", waktu: "19.00 - 20.00", kegiatan: "Membaca ulang modul" },
+  { hari: "Rabu", waktu: "19.00 - 21.00", kegiatan: "Mengerjakan tugas praktik" },
+  { hari: "Jumat", waktu: "19.30 - 20.30", kegiatan: "Merekam video dan menulis laporan" },
+];
+
+export default function Tentang() {
+  return (
+    <main className="mx-auto max-w-5xl px-4 py-10">
+      <h1 className="text-3xl font-bold text-utama md:text-4xl">Tentang Saya</h1>
+
+      <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <Kartu judul="Perkenalan" className="md:col-span-2">
+          <p>
+            Saya tinggal di Surabaya dan senang mencoba hal baru di dunia teknologi.
+            Saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM
+            di sekitar rumah.
+          </p>
+        </Kartu>
+
+        <Kartu judul="Hobi">
+          <ul className="list-disc pl-5">
+            {hobi.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </Kartu>
+
+        <Kartu judul="Cita-cita">
+          <p>
+            Menjadi <strong>Full Stack Web Developer</strong>. Langkah yang saya
+            rencanakan:
+          </p>
+          <ol className="mt-2 list-decimal pl-5">
+            {rencana.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ol>
+        </Kartu>
+
+        <Kartu judul="Jadwal Belajar" className="md:col-span-2">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-utama text-white">
+              <tr>
+                <th className="px-3 py-2">Hari</th>
+                <th className="px-3 py-2">Waktu</th>
+                <th className="px-3 py-2">Kegiatan</th>
+              </tr>
+            </thead>
+            <tbody>
+              {jadwal.map((item) => (
+                <tr key={item.hari} className="border-b border-gray-200">
+                  <td className="px-3 py-2">{item.hari}</td>
+                  <td className="px-3 py-2">{item.waktu}</td>
+                  <td className="px-3 py-2">{item.kegiatan}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Kartu>
+      </div>
+    </main>
+  );
+}
