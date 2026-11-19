@@ -5,7 +5,7 @@ export const metadata = {
   description: "Cerita, hobi, cita-cita, dan jadwal belajar Aydin Akmal Daffa.",
 };
 
-const hobi = ["Bermain futsal", "Membaca komik", "Mendesain poster"];
+const hobi = ["Bermain basket", "Berenang", "Bermain game"];
 
 const rencana = [
   "Menuntaskan Kelas Industri UBIG sampai Semester 4",
@@ -22,12 +22,12 @@ const jadwal = [
 export default function Tentang() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
-      <h1 className="text-3xl font-bold text-utama md:text-4xl">Tentang Saya</h1>
+      <h1 className="text-3xl font-bold text-utama dark-text-sky-200 md:text-4xl">Tentang Saya</h1>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         <Kartu judul="Perkenalan" className="md:col-span-2">
           <p>
-            Saya tinggal di Surabaya dan senang mencoba hal baru di dunia teknologi.
+            Saya tinggal di Pasuruan dan senang mencoba hal baru di dunia teknologi.
             Saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM
             di sekitar rumah.
           </p>
@@ -64,7 +64,8 @@ export default function Tentang() {
             </thead>
             <tbody>
               {jadwal.map((item) => (
-                <tr key={item.hari} className="border-b border-gray-200">
+                <tr key={item.hari} className="border-b border-gray-200
+dark:border-gray-700">
                   <td className="px-3 py-2">{item.hari}</td>
                   <td className="px-3 py-2">{item.waktu}</td>
                   <td className="px-3 py-2">{item.kegiatan}</td>

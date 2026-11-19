@@ -9,12 +9,14 @@ md:flex-row md:text-left">
  width={160}
  height={160}
  loading="eager"
- className="h-40 w-40 shrink-0 rounded-full border-4 border-utama object-cover"
+ className="h-40 w-40 shrink-0 rounded-full border-4 border-utama dark:border-
+sky-200 object-cover"
  />
  <div>
- <h1 className="text-3xl font-bold text-utama
+ <h1 className="text-3xl font-bold text-utama dark-text-sky-200
 md:text-5xl">Halo, saya Aydin Akmal Daffa{nama}!</h1>
- <p className="mt-3 text-lg text-gray-700">{tagline}</p>
+ <p className="mt-3 text-lg text-gray-700 dark:text-
+gray-300">{tagline}</p>
  </div>
  </section>
  );

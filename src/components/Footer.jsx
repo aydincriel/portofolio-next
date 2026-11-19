@@ -3,7 +3,7 @@ export default function Footer() {
 
   return (
     <footer className="mt-auto bg-utama px-4 py-4 text-center text-sm text-white">
-      &copy; {tahun} Aydin Akmal Daffa. Dibuat dengan Next.js di Kelas Industri UBIG.
+      &copy; {tahun} Aydin Akmal Daffa. dibuat dengan next.js di kelas industri UBIG.
     </footer>
   );
 }

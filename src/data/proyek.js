@@ -14,7 +14,7 @@ export const proyek = [
   },
   {
     slug: "form-kontak",
-    judul: "To Do Lis",
+    judul: "To Do List",
     kategori: "PHP",
     minggu: "Minggu 02",
     gambar: "/proyek/to-do-list.png",
