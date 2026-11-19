@@ -4,8 +4,7 @@ import { useState } from "react";
 import ProyekCard from "@/components/ProyekCard";
 
 const daftarKategori = ["Semua", "HTML", "CSS", "JavaScript", "PHP"];
-const tombolBiasa = "rounded-full border border-utama dark:border-
-sky-200 px-4 py-1 text-sm font-semibold text-utama dark-text-sky-200";
+const tombolBiasa = "rounded-full border border-utama dark:border-sky-200 px-4 py-1 text-sm font-semibold text-utama dark-text-sky-200";
 const tombolAktif = "rounded-full border border-aksen bg-aksen px-4 py-1 text-sm font-semibold text-white";
 
 export default function FilterProyek({ proyek }) {
