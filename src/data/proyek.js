@@ -15,7 +15,7 @@ export const proyek = [
   {
     slug: "form-kontak",
     judul: "To Do List",
-    kategori: "PHP",
+    kategori: "JavaScript",
     minggu: "Minggu 02",
     gambar: "/proyek/to-do-list.png",
     deskripsi: "Aplikasi daftar tugas untuk menambah, mengedit, dan menghapus kegiatan harian.",
