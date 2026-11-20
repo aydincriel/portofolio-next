@@ -16,9 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: {
     default: "Aydin Akmal Daffa | Portofolio",
-    template: "%s | Aydin Akmal Daffa"
+    template: "%s | Aydin Akmal Daffa",
   },
-  description: "Portofolio Aydin Akmal Daffa, siswa SMK calon Junior Web Developer di Kelas Industri UBIG.",
+  description:
+    "Portofolio Aydin Akmal Daffa, siswa SMK calon Junior Web Developer di Kelas Industri UBIG.",
 };
 
 export default function RootLayout({ children }) {
@@ -27,9 +28,8 @@ export default function RootLayout({ children }) {
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-latar dark:bg-gray-900 text-gray-800 dark:text-
-gray-100">
-        <Navbar/>
+      <body className="min-h-full flex flex-col bg-latar dark:bg-slate-900 text-gray-800 dark:text-gray-300">
+        <Navbar />
         {children}
         <Footer />
       </body>

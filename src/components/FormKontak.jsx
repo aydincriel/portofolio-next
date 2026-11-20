@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 
-const kelasInput = "mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2";
+const kelasInput =
+  "mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2";
+
+const kelasError = "mt-1 text-sm text-aksen dark:text-red-300";
 
 export default function FormKontak() {
   const [nama, setNama] = useState("");
@@ -11,23 +14,38 @@ export default function FormKontak() {
   const [keperluan, setKeperluan] = useState("");
   const [pesan, setPesan] = useState("");
   const [error, setError] = useState({});
+  const [berhasil, setBerhasil] = useState(false);
 
   function kirim(e) {
     e.preventDefault();
     const errorBaru = {};
+
     if (nama.trim() === "") {
       errorBaru.nama = "Nama wajib diisi.";
     }
     if (!email.includes("@")) {
       errorBaru.email = "Email harus memuat tanda @, contoh nama@gmail.com.";
     }
+    if (hp.length < 10) {
+      errorBaru.hp = "Nomor HP minimal 10 angka.";
+    }
+    if (keperluan === "") {
+      errorBaru.keperluan = "Pilih salah satu keperluan.";
+    }
+    if (pesan.trim().length < 10) {
+      errorBaru.pesan = "Pesan minimal 10 karakter.";
+    }
+
     setError(errorBaru);
+    setBerhasil(Object.keys(errorBaru).length === 0);
   }
 
   return (
     <form onSubmit={kirim} noValidate className="space-y-4">
       <div>
-        <label htmlFor="nama" className="block font-semibold">Nama lengkap</label>
+        <label htmlFor="nama" className="block font-semibold">
+          Nama lengkap
+        </label>
         <input
           type="text"
           id="nama"
@@ -37,12 +55,13 @@ export default function FormKontak() {
           onChange={(e) => setNama(e.target.value)}
           className={kelasInput}
         />
-        {error.nama && <p className="mt-1 text-sm text-aksen dark:text-
-red-300">{error.nama}</p>}
+        {error.nama && <p className={kelasError}>{error.nama}</p>}
       </div>
 
       <div>
-        <label htmlFor="email" className="block font-semibold">Email</label>
+        <label htmlFor="email" className="block font-semibold">
+          Email
+        </label>
         <input
           type="email"
           id="email"
@@ -52,12 +71,13 @@ red-300">{error.nama}</p>}
           onChange={(e) => setEmail(e.target.value)}
           className={kelasInput}
         />
-        {error.email && <p className="mt-1 text-sm text-aksen dark:text-
-red-300">{error.email}</p>}
+        {error.email && <p className={kelasError}>{error.email}</p>}
       </div>
 
       <div>
-        <label htmlFor="hp" className="block font-semibold">Nomor HP</label>
+        <label htmlFor="hp" className="block font-semibold">
+          Nomor HP
+        </label>
         <input
           type="tel"
           id="hp"
@@ -67,10 +87,13 @@ red-300">{error.email}</p>}
           onChange={(e) => setHp(e.target.value)}
           className={kelasInput}
         />
+        {error.hp && <p className={kelasError}>{error.hp}</p>}
       </div>
 
       <div>
-        <label htmlFor="keperluan" className="block font-semibold">Keperluan</label>
+        <label htmlFor="keperluan" className="block font-semibold">
+          Keperluan
+        </label>
         <select
           id="keperluan"
           name="keperluan"
@@ -78,15 +101,18 @@ red-300">{error.email}</p>}
           onChange={(e) => setKeperluan(e.target.value)}
           className={kelasInput}
         >
-          <option value="" disabled>-- Pilih keperluan --</option>
-          <option value="tanya">Bertanya tentang proyek</option>
-          <option value="kerja-sama">Ajakan kerja sama</option>
+          <option value="">-- Pilih keperluan --</option>
+          <option value="bertanya">Bertanya</option>
+          <option value="kerja-sama">Kerja sama proyek</option>
           <option value="lainnya">Lainnya</option>
         </select>
+        {error.keperluan && <p className={kelasError}>{error.keperluan}</p>}
       </div>
 
       <div>
-        <label htmlFor="pesan" className="block font-semibold">Pesan</label>
+        <label htmlFor="pesan" className="block font-semibold">
+          Pesan
+        </label>
         <textarea
           id="pesan"
           name="pesan"
@@ -96,6 +122,7 @@ red-300">{error.email}</p>}
           onChange={(e) => setPesan(e.target.value)}
           className={kelasInput}
         />
+        {error.pesan && <p className={kelasError}>{error.pesan}</p>}
       </div>
 
       <button
@@ -105,10 +132,16 @@ red-300">{error.email}</p>}
         Kirim Pesan
       </button>
 
-      <p className="text-sm text-gray-600 dark:text-
-gray-400">
-        Catatan: form ini belum mengirim pesan. Pengiriman pesan baru dibuat di Minggu 15.
+      <p className="text-sm text-gray-600 dark:text-gray-400">
+        Catatan: form ini belum mengirim pesan. Pengiriman pesan baru dibuat di
+        Minggu 15.
       </p>
+
+      {berhasil && (
+        <p className="rounded-lg bg-green-100 p-3 text-green-800 dark:bg-green-900 dark:text-green-100">
+          Terima kasih, {nama}! Pesanmu sudah lolos pemeriksaan.
+        </p>
+      )}
     </form>
   );
 }
