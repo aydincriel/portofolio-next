@@ -32,3 +32,34 @@ Pesan dari form kontak.
 | `pesan` | `text` | Isi pesan |
 RLS aktif tanpa policy, sehingga pengunjung tidak bisa membaca
 pesan. Policy `insert` dibuat di Minggu 15.
+
+## Tabel `projects`
+
+| Kolom | Tipe | Keterangan |
+|-------|------|------------|
+| id | bigint | Primary key |
+| created_at | timestamptz | Waktu data dibuat |
+| slug | text | Identitas unik proyek di URL |
+| judul | text | Judul proyek |
+| deskripsi | text | Deskripsi singkat |
+| kategori | text | HTML, CSS, JavaScript, PHP, dst. |
+| minggu | text | Minggu pengerjaan |
+| fitur | text[] | Daftar fitur proyek |
+| gambar_url | text | Path gambar proyek |
+
+RLS: aktif. Policy: baca publik.
+
+## Tabel `messages`
+
+(isi dari hasil query di atas)
+
+## Tabel `skills`
+
+| Kolom | Tipe | Keterangan |
+|-------|------|------------|
+| id | bigint | Primary key |
+| created_at | timestamptz | Waktu data dibuat |
+| nama | text | Nama keahlian |
+| level | text | Tingkat penguasaan |
+
+RLS: aktif. Policy: baca publik (`select` untuk `anon` dan `authenticated`).
