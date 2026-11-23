@@ -33,33 +33,16 @@ Pesan dari form kontak.
 RLS aktif tanpa policy, sehingga pengunjung tidak bisa membaca
 pesan. Policy `insert` dibuat di Minggu 15.
 
-## Tabel `projects`
-
-| Kolom | Tipe | Keterangan |
-|-------|------|------------|
-| id | bigint | Primary key |
-| created_at | timestamptz | Waktu data dibuat |
-| slug | text | Identitas unik proyek di URL |
-| judul | text | Judul proyek |
-| deskripsi | text | Deskripsi singkat |
-| kategori | text | HTML, CSS, JavaScript, PHP, dst. |
-| minggu | text | Minggu pengerjaan |
-| fitur | text[] | Daftar fitur proyek |
-| gambar_url | text | Path gambar proyek |
-
-RLS: aktif. Policy: baca publik.
-
-## Tabel `messages`
-
-(isi dari hasil query di atas)
-
 ## Tabel `skills`
 
-| Kolom | Tipe | Keterangan |
-|-------|------|------------|
-| id | bigint | Primary key |
-| created_at | timestamptz | Waktu data dibuat |
-| nama | text | Nama keahlian |
-| level | text | Tingkat penguasaan |
+Daftar keahlian Aydin.
 
-RLS: aktif. Policy: baca publik (`select` untuk `anon` dan `authenticated`).
+| Kolom | Tipe | Keterangan |
+| --- | --- | --- |
+| `id` | `int8` | Primary key, nomor otomatis 1, 2, 3, ... |
+| `created_at` | `timestamptz` | Waktu baris dibuat, terisi otomatis dengan `now()` |
+| `nama` | `text` | Nama keahlian |
+| `level` | `text` | Dasar, Menengah, atau Mahir |
+
+RLS aktif. Policy `Pengunjung boleh membaca keahlian`: peran `anon`
+boleh `select` semua baris.
