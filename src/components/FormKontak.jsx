@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const kelasInput =
   "mt-1 w-full rounded-lg border border-input bg-card p-2";
@@ -125,12 +126,9 @@ export default function FormKontak() {
         {error.pesan && <p className={kelasError}>{error.pesan}</p>}
       </div>
 
-      <button
-        type="submit"
-        className="rounded-lg bg-utama px-5 py-2 font-semibold text-white hover:opacity-90"
-      >
+      <Button type="submit" size="lg">
         Kirim Pesan
-      </button>
+      </Button>
 
       <p className="text-sm text-muted-foreground">
         Catatan: form ini belum mengirim pesan. Pengiriman pesan baru dibuat di

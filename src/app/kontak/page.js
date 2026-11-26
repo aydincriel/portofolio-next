@@ -1,4 +1,5 @@
 import FormKontak from "@/components/FormKontak";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata = {
   title: "Kontak",
@@ -14,35 +15,43 @@ export default function Kontak() {
       </p>
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">
-        <section className="rounded-xl border border-border bg-card p-6 shadow-sm md:col-span-2">
-          <FormKontak />
-        </section>
+        <Card className="md:col-span-2">
+          <CardContent>
+            <FormKontak />
+          </CardContent>
+        </Card>
 
-        <section className="h-fit rounded-xl border border-border bg-card p-6 shadow-sm">
-          <h2 className="text-xl font-bold text-primary">Temukan Saya di</h2>
-          <ul className="mt-3 space-y-2">
-            <li>
-              GitHub:{" "}
-              <a
-                href="https://github.com/aydincriel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-primary underline"
-              >
-                github.com/aydincriel
-              </a>
-            </li>
-            <li>
-              Email:{" "}
-              <a
-                href="mailto:aydinakmal@gmail.com"
-                className="font-semibold text-primary underline"
-              >
-                aydinakmal@gmail.com
-              </a>
-            </li>
-          </ul>
-        </section>
+        <Card className="h-fit">
+          <CardHeader>
+            <CardTitle className="text-xl font-bold text-primary">
+              Temukan Saya di
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-2">
+              <li>
+                GitHub:{" "}
+                <a
+                  href="https://github.com/aydincriel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-primary underline"
+                >
+                  github.com/aydincriel
+                </a>
+              </li>
+              <li>
+                Email:{" "}
+                <a
+                  href="mailto:aydinakmal@gmail.com"
+                  className="font-semibold text-primary underline"
+                >
+                  aydinakmal@gmail.com
+                </a>
+              </li>
+            </ul>
+          </CardContent>
+        </Card>
       </div>
     </main>
   );
