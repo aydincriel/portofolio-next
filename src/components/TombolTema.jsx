@@ -8,6 +8,7 @@ export default function TombolTema() {
     useEffect(() => {
         if (localStorage.getItem("tema") === "gelap") {
             document.documentElement.classList.add("dark");
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setGelap(true);
         }
     }, []);

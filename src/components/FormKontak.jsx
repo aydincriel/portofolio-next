@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 const kelasInput =
-  "mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2";
+  "mt-1 w-full rounded-lg border border-input bg-card p-2";
 
-const kelasError = "mt-1 text-sm text-aksen dark:text-red-300";
+const kelasError = "mt-1 text-sm text-aksen";
 
 export default function FormKontak() {
   const [nama, setNama] = useState("");
@@ -132,7 +132,7 @@ export default function FormKontak() {
         Kirim Pesan
       </button>
 
-      <p className="text-sm text-gray-600 dark:text-gray-400">
+      <p className="text-sm text-muted-foreground">
         Catatan: form ini belum mengirim pesan. Pengiriman pesan baru dibuat di
         Minggu 15.
       </p>
